@@ -3,6 +3,19 @@ kind: Application
 metadata:
   name: backend-app
   namespace: argocd
+    annotations:
+    # Assign alias 'chai-app' to your image
+    argocd-image-updater.argoproj.io/image-list: backend-app=himanshu369/fastapi-mysql-backend # Maps the image alias 'chai-app' to your DockerHub image
+
+    # Sort tags by latest push date
+    argocd-image-updater.argoproj.io/chai-app.update-strategy: latest
+
+    # Only pick commit SHAs, ignoring 'latest' or other non-commit tags
+    argocd-image-updater.argoproj.io/chai-app.allow-tags: regexp:^[0-9a-f]{40}$ # Uses semantic versioning for image updates
+
+    argocd-image-updater.argoproj.io/write-back-method: argocd
+    
+
 spec:
   project: default
   source:
