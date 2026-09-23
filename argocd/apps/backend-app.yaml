@@ -9,7 +9,6 @@ spec:
     repoURL: 'https://github.com/HimanshuVK1/fluid-ai'
     targetRevision: HEAD
     path: backend
-    kustomize: {}
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: fluid-ai
