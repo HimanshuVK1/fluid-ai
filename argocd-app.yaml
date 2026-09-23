@@ -3,6 +3,10 @@ kind: Application
 metadata:
   name: fluid-ai-app
   namespace: argocd
+  annotations:
+    argocd-image-updater.argoproj.io/write-back-method: git
+    argocd-image-updater.argoproj.io/image-list: backend-image=himanshu369/fastapi-mysql-backend
+    argocd-image-updater.argoproj.io/backend-image.update-strategy: latest
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
