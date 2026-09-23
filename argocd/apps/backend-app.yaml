@@ -7,6 +7,7 @@ metadata:
     argocd-image-updater.argoproj.io/image-list: backend-app=himanshu369/fastapi-mysql-backend
     argocd-image-updater.argoproj.io/backend-app.update-strategy: latest
     argocd-image-updater.argoproj.io/backend-app.allow-tags: regexp:^[0-9a-f]{40}$
+    argocd-image-updater.argoproj.io/backend-app.latest.sort: date
     argocd-image-updater.argoproj.io/write-back-method: argocd
 spec:
   project: default
