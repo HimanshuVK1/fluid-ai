@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: fluid-ai-app
+  namespace: argocd
+  labels:
+    app.kubernetes.io/part-of: fluid-ai
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/HimanshuVK1/fluid-ai'
+    targetRevision: main
+    path: argocd/apps
+    directory:
+      recurse: true
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: argocd
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
