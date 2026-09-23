@@ -12,11 +12,11 @@ spec:
   project: default
   source:
     repoURL: 'https://github.com/HimanshuVK1/fluid-ai'
-    targetRevision: main
-    path: k8s/backend
+    targetRevision: HEAD
+    path: backend
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: default
+    namespace: fluid-ai
   syncPolicy:
     automated:
       prune: true
