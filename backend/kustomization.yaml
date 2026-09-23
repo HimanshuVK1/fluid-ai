@@ -4,4 +4,4 @@ resources:
   - deployment-backend.yaml  # or whatever your file is named
 images:
   - name: himanshu369/fastapi-mysql-backend
-    newTag: latest
+  
