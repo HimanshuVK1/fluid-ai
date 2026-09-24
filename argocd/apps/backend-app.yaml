@@ -4,13 +4,15 @@ metadata:
   name: backend-app
   namespace: argocd
   annotations:
-    # 1. Point to the specific mutable tag to track (e.g. :latest)
-    argocd-image-updater.argoproj.io/image-list: backend-app=himanshu369/fastapi-mysql-backend:latest
+    # 1. Track the repository without locking to a single tag
+    argocd-image-updater.argoproj.io/image-list: backend-app=himanshu369/fastapi-mysql-backend
 
-    # 2. Set strategy to digest
-    argocd-image-updater.argoproj.io/backend-app.update-strategy: digest
+    # 2. Pick the newest tag matching your 40-char commit SHA regex
+    argocd-image-updater.argoproj.io/backend-app.update-strategy: newest-build
+    argocd-image-updater.argoproj.io/backend-app.allow-tags: regexp:^[0-9a-f]{40}$
+    argocd-image-updater.argoproj.io/backend-app.sort: date
 
-    # 3. Write updates directly to Argo CD in-memory/etcd (NO Git commits/pushes)
+    # 3. Apply the tag directly into Argo CD memory/etcd (NO Git commits or pushes)
     argocd-image-updater.argoproj.io/write-back-method: argocd
 spec:
   project: default
