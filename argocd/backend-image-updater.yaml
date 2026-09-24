@@ -5,5 +5,5 @@ metadata:
   namespace: argocd
 spec:
   applicationRefs:
-    - namePattern: "backend-app"
+    - namePattern: ".*"
       useAnnotations: true
