@@ -15,7 +15,7 @@ spec:
   source:
     repoURL: 'https://github.com/HimanshuVK1/fluid-ai'
     targetRevision: HEAD
-    path: backend
+    path: deploy\services\backend
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: fluid-ai

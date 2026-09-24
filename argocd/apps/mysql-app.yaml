@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: 'https://github.com/HimanshuVK1/fluid-ai'
     targetRevision: HEAD
-    path: mysql-db
+    path: deploy/platform/mysql-db
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: fluid-ai
