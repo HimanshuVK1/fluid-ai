@@ -9,7 +9,7 @@ metadata:
     argocd-image-updater.argoproj.io/backend-app.update-strategy: latest
     argocd-image-updater.argoproj.io/backend-app.allow-tags: regexp:^[0-9a-f]{40}$
     argocd-image-updater.argoproj.io/backend-app.sort: date
-    argocd-image-updater.argoproj.io/write-back-method: git:secret:<your-github-secret-name>
+    argocd-image-updater.argoproj.io/write-back-method: git:secret:git-creds
     argocd-image-updater.argoproj.io/git-branch: main
     argocd-image-updater.argoproj.io/write-back-target: kustomization
     # 2. For Helm:
