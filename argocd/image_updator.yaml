@@ -1,17 +1,19 @@
 apiVersion: argocd-image-updater.argoproj.io/v1alpha1
 kind: ImageUpdater
 metadata:
-  name: fluid-ai-image-updater
+  name: backend-app-updater
   namespace: argocd
 spec:
   writeBackConfig:
-    method: "argocd"
+    method: "git:secret:git-creds"
+    gitConfig:
+      branch: "main"
+      writeBackTarget: "kustomization"
   applicationRefs:
-    - namePattern: "fluid-ai-app"
+    - namePattern: "backend-app"
       images:
-        - alias: "backend-image"
-          imageName: "himanshu369/fastapi-mysql-backend:latest"   # tag included — required for digest strategy
-          commonUpdateSettings:
-            updateStrategy: "digest"
-
-
+        - alias: "backend-app"
+          imageName: "himanshu369/fastapi-mysql-backend"
+          updateStrategy: "latest"
+          allowTags: "regexp:^[0-9a-f]{40}$"
+          pullSecret: "pullsecret:dockerhub-creds"
