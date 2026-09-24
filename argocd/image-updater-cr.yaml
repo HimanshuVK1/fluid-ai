@@ -5,5 +5,5 @@ metadata:
   namespace: argocd
 spec:
   applicationRefs:
-    - namePattern: ".*"
+    - namePattern: "*"
       useAnnotations: true
