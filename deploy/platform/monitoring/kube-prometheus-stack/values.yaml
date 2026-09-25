@@ -79,8 +79,6 @@ prometheus:
     ruleSelectorNilUsesHelmValues: false
 
 prometheusOperator:
-  admissionWebhooks:
-    enabled: false
   resources:
     requests:
       cpu: 50m
