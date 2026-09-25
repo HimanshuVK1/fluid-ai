@@ -67,7 +67,10 @@ prometheus:
       limits:
         cpu: 500m
         memory: 1Gi
-    storageSpec: false
+    storageSpec: {}
+    volumes:
+      - name: prometheus-kube-prometheus-stack-prometheus-db
+        emptyDir: {}
     serviceMonitorSelectorNilUsesHelmValues: false
     podMonitorSelectorNilUsesHelmValues: false
     ruleSelectorNilUsesHelmValues: false
